@@ -7,11 +7,20 @@
 # Ignore bundler config.
 /.bundle
 
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+
+/node_modules
+/yarn-error.log
+
+.byebug_history
+/public/spree
+/vendor/*
+!/vendor/assets
 
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
