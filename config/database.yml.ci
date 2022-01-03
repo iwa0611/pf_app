@@ -1,6 +1,6 @@
 test:
   adapter: mysql2
-  encoding: uft8
+  encoding: utf8
   pool: 5
   username: 'root'
   port: 3306
