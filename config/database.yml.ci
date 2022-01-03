@@ -2,7 +2,7 @@ test:
   adapter: mysql2
   encoding: uft8
   pool: 5
-  usename: 'root'
+  username: 'root'
   port: 3306
   host: '127.0.0.1'
   database: pf_app_test
