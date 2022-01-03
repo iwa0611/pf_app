@@ -48,7 +48,7 @@ jobs:
     - run:
         name: Run rspec
         command: |
-          docker-compose exec web rspec
+          bundle exec rspec
 
     #collect reports
     #- store_test_results:
