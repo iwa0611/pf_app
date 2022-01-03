@@ -4,6 +4,7 @@ jobs:
     docker:
     - image: circleci/ruby
       environment:
+        - BUNDKER_VERSION: 2.0.2
         - RAILS_ENV: 'test'
     - image: circleci/mysql
       environment:
