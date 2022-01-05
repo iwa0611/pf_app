@@ -17,10 +17,10 @@ jobs:
     steps:
     - checkout
 
-    #- restore_cache:
-    #    keys:
-    #    - v1-dependencies-{{ checksum "Gmefile.lock" }}
-    #    - v1-dependencies-
+    - restore_cache:
+        keys:
+        - v1-dependencies-{{ checksum "src/Gmefile.lock" }}
+        - v1-dependencies-
 
     - run:
         name: install dependencies
@@ -31,7 +31,7 @@ jobs:
     - save_cache:
         paths:
         - ./vendor/bundle
-        key: v1-dependencies-{{ checksum "Gemfile.lock" }}
+        key: v1-dependencies-{{ checksum "src/Gemfile.lock" }}
 
     #Database setup
     - run: mv ./config/database.yml.ci ./config/database.yml
