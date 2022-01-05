@@ -12,14 +12,12 @@ jobs:
         - MYSQL_ROOT_HOST: '127.0.0.1'
 
     working_directory: ~/pf_app
-
-
     steps:
     - checkout
 
     - restore_cache:
         keys:
-        - v1-dependencies-{{ checksum "src/Gmefile.lock" }}
+        - v1-dependencies-{{ checksum "Gemfile.lock" }}
         - v1-dependencies-
 
     - run:
@@ -31,7 +29,7 @@ jobs:
     - save_cache:
         paths:
         - ./vendor/bundle
-        key: v1-dependencies-{{ checksum "src/Gemfile.lock" }}
+        key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
     #Database setup
     - run: mv ./config/database.yml.ci ./config/database.yml
@@ -49,6 +47,12 @@ jobs:
         name: Run rspec
         command: |
           bundle exec rspec
+
+    #run rubocop
+    - run:
+        name: Run rubocop
+        command: |
+          bundle exec rubocop
 
     #heroku deploy
     - deploy:
