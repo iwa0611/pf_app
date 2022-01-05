@@ -1,0 +1,40 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+#以下にはrubocopで検証したくないフォルダを指定する
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'bin/*'
+    - 'config/environments/*'
+    - 'config/application.rb'
+    - 'config/initializers/*'
+    - 'config/spring.rb'
+    - 'lib/tasks/*'
+    - 'vendor/**/*'
+    - 'path/ruby'
+    
+# 余分な空白行を許可する
+Layout/EmptyLines:
+  Enabled: false
+
+# 文字数を許可する
+Layout/LineLength:
+  Enabled: false
+
+# 初期エラーの為除外
+Bundler/DuplicatedGem:
+  Enabled: false
+
+#修正するとRspecが落ちる為除外
+#Airbnb/FactoryAttrReferencesClass:
+#  Enabled: false
+#
+#Airbnb/FactoryClassUseString:
+#  Enabled: false
+#
+#Airbnb/OptArgParameters:
+#  Enabled: false
+#
+#Lint/UselessAssignment:
+#  Enabled: false
