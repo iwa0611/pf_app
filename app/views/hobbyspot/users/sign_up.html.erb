@@ -1,0 +1,14 @@
+<div class="sign-up-form">
+  <%= form_with url: @user do |f| %>
+    <div>
+      <%= f.text_field :name, placeholder: "ユーザー名" %>
+    </div>
+    <div>
+      <%= f.email_field :email, placeholder: "メールアドレス" %>
+    </div>
+      <%= f.password_field :password, placeholder: "パスワード" %>
+    <div>
+      <%= f.submit "アカウント作成" %>
+    </div>
+  <% end %>
+</div>

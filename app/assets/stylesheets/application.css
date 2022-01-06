@@ -18,6 +18,9 @@ li {
   list-style-type: none;
 } 
 
+/*----------
+||TOP PAGE||
+-----------*/
 header {
   color: #000;
   margin-top: -10px;
@@ -50,4 +53,12 @@ footer {
   bottom: 0px;
   text-align: center;
   width: 100%;
+}
+
+/*------------
+||login PAGE||
+-------------*/
+.sign-up-form {
+  text-align: center;
+  padding-top: 50px;
 }
