@@ -1,4 +1,7 @@
 class Hobbyspot::UsersController < ApplicationController
-  def index
+  def sign_up
+  end
+
+  def login
   end
 end
