@@ -1,0 +1,14 @@
+<div class="sign-form">
+  <h1>プロフィール編集</h1>
+  <%= form_with url: @user do |f| %>
+    <div>
+      <%= f.text_field :name, placeholder: "ユーザー名" %>
+    </div>
+    <div>
+      <%= f.password_field :password, placeholder: "パスワード" %>
+    </div>
+    <div>
+      <%= f.submit "編集" %>
+    </div>
+  <% end %>
+</div>
