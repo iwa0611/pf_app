@@ -1,0 +1,2 @@
+module Hobbyspot::PostHelper
+end
