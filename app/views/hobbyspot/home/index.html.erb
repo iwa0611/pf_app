@@ -1,8 +1,12 @@
 <header class="Header">
   <a href="/hobbyspot">ほびスポ</a>
     <ul class="right-menu">
-      <li class="guest-menu">新規登録</li>
-      <li class="guest-menu">ログイン</li>
+      <li class="guest-menu">
+        <%= link_to "新規登録", hobbyspot_users_url %>
+      </li>
+      <li class="guest-menu">
+        <%= link_to "ログイン", hobbyspot_users_login_url %>
+      </li>
     </ul>
 </header>
 

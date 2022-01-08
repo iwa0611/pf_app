@@ -6,5 +6,9 @@ Rails.application.routes.draw do
     get "users/edit",   to: "users#edit"
     get "users",        to: "users#sign_up"
     get "users/post",   to: "posts#new"
+    devise_for :users, controllers: {
+      registrations: 'users/registrations',
+      sessions: 'users/sessions'
+    }
   end
 end
