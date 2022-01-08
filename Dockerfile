@@ -4,7 +4,8 @@ FROM ruby:2.7.3-buster
 RUN apt-get update -qq && apt-get install -y \
     build-essential \
     libpq-dev \
-    nodejs
+    nodejs \
+    default-mysql-client
 
 #作業ディレクトリの作成
 RUN mkdir /pf_app
