@@ -40,6 +40,8 @@ group :development, :test do
   gem 'rubocop-airbnb'
   gem 'dotenv-rails'
   gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-byebug'
 end
 
 group :development do
