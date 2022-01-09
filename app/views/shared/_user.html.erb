@@ -1,8 +1,11 @@
 <div class="header-item">
   <a href="/hobbyspot">ほびスポ</a>
     <ul class="right-menu">
-      <li class="guest-menu">
-        <%= button_to 'Exit', '/hobbyspot/users/sign_out', method: :delete %>
+      <li class="menu user-menu">
+        <%= link_to 'マイページ', hobbyspot_users_mypage_path %>
+      </li>
+      <li class="menu user-menu">
+        <%= button_to 'ログアウト', '/hobbyspot/users/sign_out', method: :delete %>
       </li>
     </ul>
   </div>
