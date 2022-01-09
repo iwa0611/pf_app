@@ -38,6 +38,7 @@ group :development, :test do
   gem 'rubocop-rails', require: false
   gem 'rubocop-airbnb'
   gem 'dotenv-rails'
+  gem 'pry-rails'
 end
 
 group :development do
