@@ -22,3 +22,6 @@ services:
       - "3000:3000"
     links:
       - db
+    #binding.pryで処理が止まる様に追加
+    tty: true
+    stdin_open: true
