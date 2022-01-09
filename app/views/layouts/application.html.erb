@@ -10,8 +10,13 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <header>
+    <% if hobbyspot_user_signed_in? %>
+      <%= render"shared/user" %>
+    <% else %>
+      <%= render"shared/guest" %>
+    <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
