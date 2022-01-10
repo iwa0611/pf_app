@@ -4,8 +4,12 @@ FROM ruby:2.7.3-buster
 RUN apt-get update -qq && apt-get install -y \
     build-essential \
     libpq-dev \
-    nodejs \
     default-mysql-client
+
+#node.jsインストール
+RUN apt-get install -y nodejs npm && npm install n -g && n 12.13.0
+
+#yarnインストール
 RUN wget https://github.com/yarnpkg/yarn/releases/download/v1.22.10/yarn_1.22.10_all.deb \
     && dpkg -i yarn_1.22.10_all.deb
 
