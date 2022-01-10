@@ -6,6 +6,8 @@ RUN apt-get update -qq && apt-get install -y \
     libpq-dev \
     nodejs \
     default-mysql-client
+RUN wget https://github.com/yarnpkg/yarn/releases/download/v1.22.10/yarn_1.22.10_all.deb \
+    && dpkg -i yarn_1.22.10_all.deb
 
 #作業ディレクトリの作成
 RUN mkdir /pf_app
