@@ -1,4 +1,4 @@
-<div class="sign-form">
+<div class="form sign-form">
   <h1>ユーザー登録</h1>
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 
@@ -7,6 +7,11 @@
     <div class="field">
       <%= f.label :email, 'メールアドレス' %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :name, 'ユーザー名' %><br />
+      <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
     </div>
   
     <div class="field">

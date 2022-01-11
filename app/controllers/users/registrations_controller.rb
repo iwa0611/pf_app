@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-
+  before_action :configure_permitted_parameters, if: :devise_controller?
   # GET /resource/sign_up
   # def new
   #   super
@@ -15,14 +15,26 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-  # def edit
-  #   super
-  # end
+   def edit
+    @user = User.find_by(id: current_hobbyspot_user)
+    super
+   end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+   def update
+      @user = User.find_by(id: current_hobbyspot_user)
+     if current_hobbyspot_user == @user
+      if @user.update(params.require(:hobbyspot_user).permit(:name))
+        flash[:notice] = "更新しました"
+        redirect_to hobbyspot_users_mypage_path
+      else
+        flash[:notice] = "更新できませんでした"
+        render "users/mypage"
+      end
+    else
+      redirect_to "/"
+    end
+   end
 
   # DELETE /resource
   # def destroy
@@ -39,6 +51,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+    binding.pry
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
