@@ -9,5 +9,7 @@ class Hobbyspot::UsersController < ApplicationController
   end
 
   def mypage
+    @user = User.find_by(id: current_hobbyspot_user)
+    @posts = @user.posts
   end
 end

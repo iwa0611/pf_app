@@ -1,7 +1,25 @@
-<div class="sign-form">
+<div class="form sign-form">
+  <div class="flash_message">
+    <div class="notice">
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
+    </div>
+  </div>
   <h1>プロフィール</h1>
     <div>
-      <h2>ユーザー名</h2>
+      <h2>ユーザー名:<%= @user.name %></h2>
     </div>
     <%= link_to 'プロフィール編集', edit_hobbyspot_user_registration_url %>
+  <% @posts.each do |post| %>
+  <ul>
+    <li class="user-post">
+      <div class="post-image">
+        <%= post.body %>
+        <%= image_tag "#{post.image}" %>
+        <%= link_to '削除', "/hobbyspot/posts/#{post.id}", method: :delete, data: {confirm: "削除しますか？"} %>
+      </div>
+    </li>
+  </ul>
+  <% end %>
 </div>
