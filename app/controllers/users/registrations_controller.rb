@@ -15,15 +15,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # GET /resource/edit
-   def edit
+  def edit
     @user = User.find_by(id: current_hobbyspot_user)
     super
-   end
+  end
 
   # PUT /resource
-   def update
-      @user = User.find_by(id: current_hobbyspot_user)
-     if current_hobbyspot_user == @user
+  def update
+    @user = User.find_by(id: current_hobbyspot_user)
+    if current_hobbyspot_user == @user
       if @user.update(params.require(:hobbyspot_user).permit(:name))
         flash[:notice] = "更新しました"
         redirect_to hobbyspot_users_mypage_path
@@ -34,7 +34,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       redirect_to "/"
     end
-   end
+  end
 
   # DELETE /resource
   # def destroy
@@ -54,7 +54,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-    binding.pry
   end
 
   # If you have extra params to permit, append them to the sanitizer.

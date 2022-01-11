@@ -26,6 +26,10 @@ Layout/LineLength:
 Bundler/DuplicatedGem:
   Enabled: false
 
+# 一旦除外
+RSpec/EmptyExampleGroup:
+  Enabled: false
+
 #修正するとRspecが落ちる為除外
 #Airbnb/FactoryAttrReferencesClass:
 #  Enabled: false
