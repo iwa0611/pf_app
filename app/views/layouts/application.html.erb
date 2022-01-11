@@ -7,6 +7,7 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -17,6 +18,11 @@
       <%= render"shared/guest" %>
     <% end %>
     </header>
+
     <%= yield %>
+
+    <footer>
+      <%= render"shared/footer" %>
+    </footer>
   </body>
 </html>

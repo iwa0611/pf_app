@@ -5,7 +5,11 @@
         <%= link_to 'マイページ', hobbyspot_users_mypage_path %>
       </li>
       <li class="menu user-menu">
+        <%= link_to '投稿', new_hobbyspot_post_path %>
+      </li>
+      <li class="menu user-menu">
         <%= button_to 'ログアウト', '/hobbyspot/users/sign_out', method: :delete %>
       </li>
     </ul>
+      <%= @user.name %>
   </div>
