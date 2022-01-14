@@ -1,7 +1,13 @@
 require 'rails_helper'
 
-# RSpec.describe "Homes", type: :request do
-#  describe "GET /index" do
-#    pending "add some examples (or delete) #{__FILE__}"
-#  end
-# end
+RSpec.describe "Homes", type: :request do
+  before do
+    get hobbyspot_path
+  end
+
+  describe "トップページを開いた時" do
+    it "ページが表示される" do
+      expect(response.status).to eq 200
+    end
+  end
+end
