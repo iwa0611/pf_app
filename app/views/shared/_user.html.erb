@@ -2,13 +2,13 @@
   <a href="/hobbyspot">ほびスポ</a>
     <ul class="right-menu">
       <li class="menu user-menu">
-        <%= link_to 'マイページ', hobbyspot_users_mypage_path %>
+        <%= link_to 'マイページ', hobbyspot_users_mypage_path, id:"id-mypage" %>
       </li>
       <li class="menu user-menu">
-        <%= link_to '投稿', new_hobbyspot_post_path %>
+        <%= link_to '投稿', new_hobbyspot_post_path, id:"id-postpage" %>
       </li>
       <li class="menu user-menu">
-        <%= button_to 'ログアウト', '/hobbyspot/users/sign_out', method: :delete %>
+        <%= button_to 'ログアウト', '/hobbyspot/users/sign_out', id:"id-logout", method: :delete %>
       </li>
     </ul>
       <%= @user.name %>
