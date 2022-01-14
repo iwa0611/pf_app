@@ -1,7 +1,8 @@
 class Hobbyspot::PostsController < ApplicationController
+  before_action :authenticate_hobbyspot_user!
+
   def new
     @user = User.find_by(id: current_hobbyspot_user)
-    @post = Post.new
   end
 
   def create
@@ -25,6 +26,6 @@ class Hobbyspot::PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:body, :user_id, :image, :user_name)
+    params[:user].permit(:body, :user_id, :image, :user_name)
   end
 end
