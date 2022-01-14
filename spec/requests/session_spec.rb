@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "SessionsController", type: :request do
   describe "ログインしないでマイページを開いた時" do
-    
     before do
       get hobbyspot_users_mypage_path
     end
@@ -13,7 +12,6 @@ RSpec.describe "SessionsController", type: :request do
   end
 
   describe "ログインしないで投稿ページを開いた時" do
-
     before do
       get new_hobbyspot_post_path
     end
@@ -24,7 +22,6 @@ RSpec.describe "SessionsController", type: :request do
   end
 
   describe "ログインした時" do
-
     before do
       get hobbyspot_path
       login_user
@@ -37,4 +34,3 @@ RSpec.describe "SessionsController", type: :request do
     end
   end
 end
-
