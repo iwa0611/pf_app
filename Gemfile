@@ -29,7 +29,6 @@ gem 'image_processing', '~> 1.2'
 gem 'bootsnap', '>= 1.4.4', require: false
 gem 'devise'
 gem 'bcrypt'
-gem 'carrierwave'
 gem 'rails-i18n'
 gem 'font-awesome-sass'
 

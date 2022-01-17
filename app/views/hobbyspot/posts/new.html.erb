@@ -3,17 +3,9 @@
   <%= form_with url: '/hobbyspot/posts' do |f| %>
     <%= f.hidden_field :user_id, value: "#{current_hobbyspot_user.id}" %>
     <%= f.hidden_field :user_name, value: "#{@user.name}" %>
-    <div>
-      <%= f.label :body, '内容' %>
-      <%= f.text_field :body %>
-    </div>
-    <div class="field">
-      <%= f.label :body %>
+    <div class="rich-form">
+      <%= f.label :body, "内容" %>
       <%= f.rich_text_area :body %>
-    </div>
-    <div>
-      <%= f.label :image, "画像" %>
-      <%= f.file_field :image %> 
     </div>
     <div>
       <%= f.submit '投稿' %>
