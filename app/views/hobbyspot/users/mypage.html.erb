@@ -16,8 +16,7 @@
     <li class="user-post">
       <div class="post-image">
         <%= post.body %>
-        <%= image_tag "#{post.image}" %>
-        <%= link_to '削除', "/hobbyspot/posts/#{post.id}", method: :delete, data: {confirm: "削除しますか？"} %>
+        <%= link_to '削除', "/hobbyspot/posts/#{post.id}", class:"del-post", method: :delete, data: {confirm: "削除しますか？"} %>
       </div>
     </li>
   </ul>

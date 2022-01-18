@@ -1,11 +1,11 @@
 <div class='index-raw'>
-  <p>趣味の画像を投稿するSNSです</p>
+  <h1>趣味の画像を投稿するSNSです</p>
   <div class="raw">
     <% @posts.each do |post| %>
         <ul>
           <li class="user-post post-image">
             <%= post.user_name %>:<%= post.body %>
-            <%= image_tag "#{post.image}" %>---<%= post.created_at %>
+            <div class="post-at"><%= post.created_at %></div>
           </li>
         </ul>
     <% end %>

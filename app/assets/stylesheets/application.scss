@@ -21,6 +21,10 @@ li {
   list-style-type: none;
 }
 
+ul {
+  margin-left: -35px;
+}
+
 a {
   color: #000;
   border-radius: 20px;
@@ -44,15 +48,14 @@ header {
   border-right: solid 1px #bfbcada3;
   box-shadow: 0 5px 25px 0 rgba(150, 150, 150, 0.5);
   position: fixed;
-  width: 25%;
-  height: 100%;
+  width: 200px;
+  height: 200%;
 }
 
 main {
   width: 75%;
   height: 115%;
-  padding: 0 15% 0 35%;
-  text-align: center;
+  padding-left: 240px;
 }
 
 footer {
@@ -79,7 +82,6 @@ footer {
 
 .user-name {
   margin-top: 80px;
-  padding-left: 25%;
 }
 .header-item {
   font-size: 18px;
@@ -109,7 +111,10 @@ footer {
 .menu {
   color: #000;
   padding: 5px 10px;
-  left: 20%;
+}
+
+.sub-menu {
+  margin-left: -50px;
 }
 
 .header-item .menu:hover {
@@ -124,6 +129,12 @@ footer {
 
 .raw {
   padding-bottom: 50px;
+  margin-left: -20px;
+}
+
+.post-at {
+  text-align: right;
+  font-size: 20px;
 }
 
 /*------------
@@ -131,7 +142,6 @@ footer {
 -------------*/
 .form {
   display: block;
-  text-align: center;
   padding-top: 50px;
 }
 
@@ -141,7 +151,7 @@ footer {
 .user-post {
   border: solid 1px black;
   border-radius: 20px;
-  height: 60px;
+  height: auto;
   line-height: 59px;
   padding-left: 10px;
   box-shadow: 0 5px 10px 0 rgba(128, 126, 255, 0.5);
@@ -149,4 +159,29 @@ footer {
 
 .post-image img {
   height: 50px;
+}
+
+.del-post {
+  margin-left: 91%;
+}
+
+.attachment__name, .attachment__size {
+  display: none;
+}
+
+.trix-content .attachment--preview {
+  text-align: left;
+}
+
+/*------------
+|| POST PAGE ||
+-------------*/
+.rich-form {
+  max-width: 75%;
+}
+
+trix-editor {
+  min-height: 20em;
+  max-height: 20em;
+  overflow-y: auto;
 }
