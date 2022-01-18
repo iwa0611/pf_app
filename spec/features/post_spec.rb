@@ -2,6 +2,8 @@ require 'rails_helper'
 require "spec_helper"
 
 RSpec.describe Hobbyspot::PostsController, type: :controller do
+  render_views
+  
   before do
     visit hobbyspot_path
     login_user
@@ -10,7 +12,6 @@ RSpec.describe Hobbyspot::PostsController, type: :controller do
     fill_in "hobbyspot_user[password]", with: "#{@user.password}"
     click_button "ログイン"
     visit '/hobbyspot/posts/new'
-    binding.pry
     fill_in "user_body", with: "Rspec test"
   end
 
