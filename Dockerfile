@@ -24,6 +24,9 @@ WORKDIR $APP_ROOT
 ADD ./Gemfile $APP_ROOT/Gemfile
 ADD ./Gemfile.lock $APP_ROOT/Gemfile.lock
 
+#nokogiri関係でエラーが発生するので追加
+RUN bundle config set force_ruby_platform true
+
 #Gemfileのbundle installを実行
 RUN bundle install
 ADD . $APP_ROOT
