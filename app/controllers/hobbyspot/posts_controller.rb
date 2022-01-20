@@ -25,6 +25,6 @@ class Hobbyspot::PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:body, :user_id, :image, :user_name)
+    params.permit(:body, :user_id, :user_name)
   end
 end
