@@ -5,7 +5,7 @@
         <ul>
           <li class="user-post post-image">
             <%= post.user_name %>:<%= post.body %>
-            <div class="post-at"><%= post.created_at %></div>
+            <div class="post-at"><%= post.created_at.to_s(:datetime_jp) %></div>
           </li>
         </ul>
     <% end %>
