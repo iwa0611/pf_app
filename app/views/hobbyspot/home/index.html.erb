@@ -1,13 +1,16 @@
 <div class='index-raw'>
-  <h1>趣味の画像を投稿するSNSです</p>
+  <h1>趣味やメモを投稿するブログ</h1>
   <div class="raw">
     <% @posts.each do |post| %>
-        <ul>
-          <li class="user-post post-image">
-            <%= post.user_name %>:<%= post.body %>
-            <div class="post-at"><%= post.created_at.to_s(:datetime_jp) %></div>
-          </li>
-        </ul>
+      <ul>
+        <li class="user-post post-image">
+          <%= link_to "", hobbyspot_post_path(post.id), class:"show-link" %>
+          <%= post.body %>
+          <div class="post-at">
+            <%= post.created_at.to_s(:datetime_jp) %>
+          </div>
+        </li>
+      </ul>
     <% end %>
   </div>
 </div>

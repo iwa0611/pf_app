@@ -1,12 +1,11 @@
 <div class="header-item">
   <%= link_to "ほびスポ", hobbyspot_path, class:"menu top-logo" %>
-  <div class="user-name fas fa-user">:<%= @user.name %></div>
   <ul class="sub-menu">
+    <li class="menu user-menu">
+      <div class="user-name fas fa-user">:<%= @user.name %></div>
+    </li>
     <li class="menu user-menu fas fa-house-user">
       <%= link_to 'マイページ', hobbyspot_users_mypage_path, class:"link-menu" %>
-    </li>
-    <li class="menu user-menu fas fa-comment">
-      <%= link_to '投稿', new_hobbyspot_post_path, class:"link-menu" %>
     </li>
     <li class="menu user-menu fas fa-sign-out-alt">
       <%= link_to 'ログアウト', '/hobbyspot/users/sign_out', data: { confirm: "ログアウトしますか?" }, method: :delete, class:"link-menu" %>
