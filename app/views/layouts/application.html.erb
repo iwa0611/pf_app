@@ -13,13 +13,22 @@
 
   <body>
     <header>
-    <% if hobbyspot_user_signed_in? %>
+    <% if admin_signed_in? %>
+      <%= render"shared/admin" %>
+    <% elsif hobbyspot_user_signed_in? %>
       <%= render"shared/user" %>
     <% else %>
       <%= render"shared/guest" %>
     <% end %>
     </header>
       <main>
+        <div class="flash_message">
+          <div class="notice">
+            <% if flash[:notice] %>
+              <div class="notice-message"><%= flash[:notice] %></div>
+            <% end %>
+          </div>
+        </div>
         <%= yield %>
       </main>
     <footer>
