@@ -1,0 +1,13 @@
+<div class="form">
+  <h1>編集ページ</h1>
+  <%= form_with model: @post, url: "/hobbyspot/posts/#{@post.id}" do |f| %>
+    <%= f.hidden_field :admin_id, value: "#{current_admin.id}" %>
+    <div class="rich-form">
+      <%= f.label :body, "内容" %>
+      <%= f.rich_text_area :body, value: @post.body %>
+    </div>
+    <div>
+      <%= f.submit '編集' %>
+    </div>
+    <% end %>
+</div>

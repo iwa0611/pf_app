@@ -1,0 +1,14 @@
+<div class="show-pagecontainer">
+  <div class="raw">
+    <div class="user-post post-image">
+      <%= @post.body %>
+      <div class="post-at">
+        <% if admin_signed_in? %>
+          <%= link_to '編集', "/hobbyspot/posts/#{@post.id}/edit", class:"edit-post" %>
+          <%= link_to '削除', "/hobbyspot/posts/#{@post.id}", class:"del-post", method: :delete, data: {confirm: "削除しますか？"} %>
+        <% end %>
+        <%= @post.created_at.to_s(:datetime_jp) %>
+      </div>
+    </div>
+  </div>
+</div>
