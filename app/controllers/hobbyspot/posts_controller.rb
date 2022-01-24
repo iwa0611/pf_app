@@ -2,7 +2,6 @@ class Hobbyspot::PostsController < ApplicationController
   before_action :authenticate_admin!, except: [:show]
   def new
     @user = User.find_by(id: current_hobbyspot_user)
-    @post = Post.new
   end
 
   def create
