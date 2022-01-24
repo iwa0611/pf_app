@@ -17,7 +17,7 @@ class Hobbyspot::PostsController < ApplicationController
 
   def update
     @post = Post.find_by(id: params[:id])
-    if @post.update(edit_params) 
+    if @post.update(edit_params)
       flash[:notice] = "更新しました"
       redirect_to hobbyspot_path
     else

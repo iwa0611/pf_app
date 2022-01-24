@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root                  to: "hobbyspot/home#index"
   devise_for(:admins, path: 'admins', module: 'admins')
-  
+
   namespace :hobbyspot do
     get "/",            to: "home#index"
     get "users/mypage", to: "users#mypage"
