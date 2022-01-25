@@ -18,21 +18,26 @@ RSpec.describe "AdminSessionsController", type: :request do
       post admin_session_path
     end
 
-    it 'TOPページが表示される' do
+    it "TOPページが表示される" do
       expect(controller.admin_signed_in?).to be true
       expect(response).to redirect_to hobbyspot_path
     end
 
-    it 'adminと表示される' do
+    it "adminと表示される" do
       get hobbyspot_path
       expect(response.body).to include 'admin'
     end
 
-    it 'adminのメニューが表示される' do
+    it "adminのメニューが表示される" do
       get hobbyspot_path
       expect(response.body).to include '管理画面'
       expect(response.body).to include '投稿'
       expect(response.body).to include 'ログアウト'
+    end
+
+    it "管理画面が表示される" do
+      get edit_admin_registration_path
+      expect(response).to have_http_status 200
     end
   end
 end
