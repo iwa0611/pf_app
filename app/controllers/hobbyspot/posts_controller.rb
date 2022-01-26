@@ -39,7 +39,7 @@ class Hobbyspot::PostsController < ApplicationController
   private
 
   def post_params
-    params.permit(:body)
+    params[:post].permit(:body)
   end
 
   def edit_params

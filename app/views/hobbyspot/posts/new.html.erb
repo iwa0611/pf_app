@@ -1,6 +1,6 @@
 <div class="form">
   <h1>投稿ページ</h1>
-  <%= form_with url: '/hobbyspot/posts' do |f| %>
+  <%= form_with scope: :post, url: '/hobbyspot/posts' do |f| %>
     <%= f.hidden_field :admin_id, value: "#{current_admin.id}" %>
     <div class="rich-form">
       <%= f.label :body, "内容" %>
@@ -11,4 +11,3 @@
     </div>
     <% end %>
 </div>
-

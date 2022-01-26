@@ -10,7 +10,7 @@ RSpec.describe Hobbyspot::PostsController do
   describe "POST #create" do
     it "adminで投稿ができる" do
       expect{
-        post :create, params: { body: "test" }
+        post :create, params: { post: { body: "test" }}
       }.to change(Post, :count).by(1)
     end
   end
