@@ -10,15 +10,5 @@
     <div>
       <h2>ユーザー名:<%= @user.name %></h2>
     </div>
-    <%= link_to 'プロフィール編集', edit_hobbyspot_user_registration_url %>
-  <% @posts.each do |post| %>
-  <ul>
-    <li class="user-post">
-      <div class="post-image">
-        <%= post.body %>
-        <%= link_to '削除', "/hobbyspot/posts/#{post.id}", class:"del-post", method: :delete, data: {confirm: "削除しますか？"} %>
-      </div>
-    </li>
-  </ul>
-  <% end %>
+  <%= link_to 'プロフィール編集', edit_hobbyspot_user_registration_url %>
 </div>

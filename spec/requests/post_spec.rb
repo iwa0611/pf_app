@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Hobbyspot::Posts", type: :request do
+RSpec.describe "PostsController", type: :request do
   let(:post) { create(:post) }
 
   describe "ユーザーの時" do

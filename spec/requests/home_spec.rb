@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Homes", type: :request do
+RSpec.describe "HomesController", type: :request do
   before do
     get hobbyspot_path
   end
