@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     get "/",            to: "home#index"
     get "users/mypage", to: "users#mypage"
     devise_for(:users, path: 'users', module: 'users')
-    resources :posts, only: [:create, :edit, :show, :update, :new, :destroy]
+    resources :posts, except: [:index]
   end
 end

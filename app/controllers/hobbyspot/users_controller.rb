@@ -3,6 +3,5 @@ class Hobbyspot::UsersController < ApplicationController
 
   def mypage
     @user = User.find_by(id: current_hobbyspot_user)
-    @posts = @user.posts
   end
 end
