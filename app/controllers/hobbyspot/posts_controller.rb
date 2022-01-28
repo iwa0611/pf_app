@@ -8,6 +8,7 @@ class Hobbyspot::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.save
+    flash[:notice] = "投稿しました。"
     redirect_to hobbyspot_path
   end
 
@@ -18,10 +19,10 @@ class Hobbyspot::PostsController < ApplicationController
   def update
     @post = Post.find_by(id: params[:id])
     if @post.update(edit_params)
-      flash[:notice] = "更新しました"
+      flash[:notice] = "更新しました。"
       redirect_to hobbyspot_path
     else
-      flash[:notice] = "更新できませんでした"
+      flash[:notice] = "更新できませんでした。"
       redirect_to "/hobbyspot/posts/#{@post.id}/edit"
     end
   end
@@ -33,6 +34,7 @@ class Hobbyspot::PostsController < ApplicationController
   def destroy
     post = Post.find_by(id: params[:id])
     post.destroy
+    flash[:notice] = "削除しました。"
     redirect_to hobbyspot_path
   end
 
