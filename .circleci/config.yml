@@ -33,9 +33,9 @@ jobs:
 
     #action_text setup
     - run:
-      name: action_text install
-      command: |
-        rails action_text:install
+        name: action_text install
+        command: |
+          rails action_text:install
 
     #Database setup
     - run: mv ./config/database.yml.ci ./config/database.yml
