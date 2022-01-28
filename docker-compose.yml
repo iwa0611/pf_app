@@ -13,15 +13,23 @@ services:
 
   web:
     build: .
-    command: rails s -p 3000 -b '0.0.0.0'
+    command: rails s -b '0.0.0.0'
     environment:
       RAILS_ENV: development
     volumes:
       - .:/pf_app
     ports:
       - "3000:3000"
-    links:
+    depends_on:
       - db
+      - chrome
     #binding.pryで処理が止まる様に追加
     tty: true
     stdin_open: true
+
+  chrome:
+    image: seleniarm/standalone-chromium:4.0.0-beta-1-20210215
+    ports:
+      - 4444:4444
+    shm_size: "2g"
+    
