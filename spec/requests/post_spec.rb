@@ -19,9 +19,8 @@ RSpec.describe "PostsController", type: :request do
       expect(response).to redirect_to root_path
     end
   end
-  
-  describe "adminの時" do
 
+  describe "adminの時" do
     before do
       get hobbyspot_path
       login_admin

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "UsersRegistrationsController", js: true, type: :system do
-
   before do
     @user = create(:user)
   end
@@ -13,7 +12,7 @@ RSpec.describe "UsersRegistrationsController", js: true, type: :system do
       fill_in "hobbyspot_user[name]", with: "hoge"
       fill_in "hobbyspot_user[password]", with: "123456"
       fill_in "hobbyspot_user[password_confirmation]", with: "123456"
-      expect{ click_button "アカウント作成" }.to change(User, :count).by(1)
+      expect { click_button "アカウント作成" }.to change(User, :count).by(1)
       expect(page).to have_content "アカウント登録が完了しました。"
     end
   end
@@ -43,10 +42,10 @@ RSpec.describe "UsersRegistrationsController", js: true, type: :system do
       sign_in @user
       visit edit_hobbyspot_user_registration_path
       click_button "アカウント削除"
-      expect{
+      expect  do
         expect(page.accept_confirm).to eq "削除しますか?"
         expect(page).to have_content "アカウントを削除しました"
-        }. to change(User, :count).by(-1)
+      end. to change(User, :count).by(-1)
     end
   end
 end
