@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Hobbyspot::Post, type: :model do
+RSpec.describe Post, type: :model do
   describe "投稿する時" do
     let(:post) { create(:post) }
 
