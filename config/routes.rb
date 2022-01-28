@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     get "users/mypage", to: "users#mypage"
     devise_for(:users, path: 'users', module: 'users')
     resources :posts, except: [:index]
+    resources :users, only: [:destroy]
   end
 end
