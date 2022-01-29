@@ -14,7 +14,8 @@
 !/log/.keep
 !/tmp/.keep
 
-/node_modules
+/node_modules/*
+!/node_modules/trix/
 /yarn-error.log
 
 .byebug_history
@@ -38,8 +39,9 @@
 /config/master.key
 
 /public/packs-test
-/node_modules
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
 /public/uploads
+
+
