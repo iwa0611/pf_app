@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-    - image: circleci/ruby:2.7.3
+    - image: circleci/ruby:2.7.3-node-browsers
       environment:
         - BUNDKER_VERSION: 2.0.2
         - RAILS_ENV: 'test'
@@ -10,10 +10,18 @@ jobs:
       environment:
         - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
         - MYSQL_ROOT_HOST: '127.0.0.1'
+    - image: selenium/standalone-chrome-debug:latest
+      name: chrome
 
     working_directory: ~/pf_app
     steps:
     - checkout
+
+    - run:
+        name: yarn node.js install
+        command: |
+          apt-get install -y nodejs npm && npm install n -g && n 12.13.0
+          wget https://github.com/yarnpkg/yarn/releases/download/v1.22.10/yarn_1.22.10_all.deb && sudo dpkg -i yarn_1.22.10_all.deb
 
     - restore_cache:
         keys:
@@ -40,13 +48,20 @@ jobs:
         command: |
           bundle exec rake db:create
           bundle exec rake db:migrate
-          bundle exec rake db:schema:load
-
+    
     #run tests
     - run:
         name: Run rspec
         command: |
           bundle exec rspec
+
+    # テスト結果の保存(CircleCI上で見れる)
+    - store_test_results:
+        path: /tmp/test-results
+        destination: test-results
+    - store_artifacts:
+        path: tmp/screenshots
+        destination: test-screenshots
 
     #run rubocop
     - run:

@@ -4,7 +4,7 @@
     <% @posts.each do |post| %>
       <ul>
         <li class="user-post post-image">
-          <%= link_to "", hobbyspot_post_path(post.id), class:"show-link" %>
+          <%= link_to "", hobbyspot_post_path(post.id), class:"show-link", id:"post_#{post.id}" %>
           <%= post.body %>
           <div class="post-at">
             <%= post.created_at.to_s(:datetime_jp) %>
