@@ -10,6 +10,8 @@ jobs:
       environment:
         - MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
         - MYSQL_ROOT_HOST: '127.0.0.1'
+    - image: selenium/standalone-chrome-debug:latest
+      name: chrome
 
     working_directory: ~/pf_app
     steps:
@@ -52,6 +54,14 @@ jobs:
         name: Run rspec
         command: |
           bundle exec rspec
+
+    # テスト結果の保存(CircleCI上で見れる)
+    - store_test_results:
+        path: /tmp/test-results
+        destination: test-results
+    - store_artifacts:
+        path: tmp/screenshots
+        destination: test-screenshots
 
     #run rubocop
     - run:
