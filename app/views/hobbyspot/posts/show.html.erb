@@ -9,6 +9,32 @@
         <% end %>
         <%= @post.created_at.to_s(:datetime_jp) %>
       </div>
+      <% @comments.each do |comment| %>
+        <ul>
+          <li>
+            <%= comment.user_name %>
+            <span>:</span>
+            <%= comment.body %>
+            <% if admin_signed_in? %>
+              <%= link_to '削除', "/hobbyspot/comments/#{comment.id}", class:"del-comment", method: :delete, data: {confirm: "削除しますか？"} %>    
+            <% elseif hobbyspot_user_signed_in? %>
+              <% if comment.user_id == current_hobbyspot_user.id %>
+                <%= link_to '削除', "/hobbyspot/comments/#{comment.id}", class:"del-comment", method: :delete, data: {confirm: "削除しますか？"} %>    
+              <% end %>
+            <% end %>
+          </li>
+        </ul>
+      <% end %>
     </div>
   </div>
+  <% if hobbyspot_user_signed_in? %>
+    <%= form_with scope: :comment, url: hobbyspot_comments_path do |f| %>
+      <%= f.hidden_field :user_name, value: "#{@user.name}" %>
+      <%= f.hidden_field :post_id, value: "#{@post.id}" %>
+      <%= f.hidden_field :user_id, value: "#{@user.id}" %>
+      <%= f.label :body, "内容" %>
+      <%= f.text_field :body %>
+      <%= f.submit "送信" %>
+    <% end %>
+  <% end %>
 </div>

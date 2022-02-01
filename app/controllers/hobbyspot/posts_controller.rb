@@ -14,6 +14,10 @@ class Hobbyspot::PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @comments = @post.comments
+    if hobbyspot_user_signed_in?
+      @user = User.find_by(id: current_hobbyspot_user)
+    end
   end
 
   def update

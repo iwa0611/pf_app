@@ -7,6 +7,7 @@
           <%= link_to "", hobbyspot_post_path(post.id), class:"show-link", id:"post_#{post.id}" %>
           <%= post.body %>
           <div class="post-at">
+            comments(<%= post.comments.count %>)
             <%= post.created_at.to_s(:datetime_jp) %>
           </div>
         </li>
