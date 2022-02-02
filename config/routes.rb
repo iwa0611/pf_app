@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  
   root                  to: "hobbyspot/home#index"
   devise_for(:admins, path: 'admins', module: 'admins')
 
