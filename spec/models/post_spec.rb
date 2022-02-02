@@ -6,7 +6,6 @@ RSpec.describe Post, type: :model do
 
     let(:post) { create(:post) }
 
-
     it "bodyが空だと投稿できない" do
       post.body = nil
       is_expected.to eq false

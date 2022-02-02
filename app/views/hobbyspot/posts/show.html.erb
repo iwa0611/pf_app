@@ -16,10 +16,10 @@
             <span>:</span>
             <%= comment.body %>
             <% if admin_signed_in? %>
-              <%= link_to '削除', "/hobbyspot/comments/#{comment.id}", class:"del-comment", method: :delete, data: {confirm: "削除しますか？"} %>    
-            <% elseif hobbyspot_user_signed_in? %>
+              <%= link_to '削除', "/hobbyspot/comments/#{comment.id}", class:"del-comment", id:"del#{comment.id}", method: :delete, data: {confirm: "削除しますか？"} %>    
+            <% elsif hobbyspot_user_signed_in? %>
               <% if comment.user_id == current_hobbyspot_user.id %>
-                <%= link_to '削除', "/hobbyspot/comments/#{comment.id}", class:"del-comment", method: :delete, data: {confirm: "削除しますか？"} %>    
+                <%= link_to '削除', "/hobbyspot/comments/#{comment.id}", class:"del-comment", id:"del#{comment.id}", method: :delete, data: {confirm: "削除しますか？"} %>    
               <% end %>
             <% end %>
           </li>
